@@ -1,9 +1,22 @@
 {
-  "manifest_version": 3,
   "name": "Advertisement Highlighter",
   "description": "Base Level Extension",
-  "version": "1.0",
-  "action": {
-    "default_icon": "icon.png"
-  }
+  "version": "0.0.1",
+  "content_scripts": [
+   {
+    "matches": [
+      "<all_urls>",
+      "https://chromewebstore.google.com/detail/adblock-%E2%80%94-block-ads-acros/gighmmpiobklfepjocnamgkkbiglidom?pli=1"
+    ],
+
+     "js": ["scripts/content.js"]
+   }
+ ],
+  "icons": {
+    "16": "images/icon.png",
+    "32": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "manifest_version": 3
 }
