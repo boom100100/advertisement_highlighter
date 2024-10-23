@@ -1,27 +1,38 @@
 console.log("i ran");
 
+// const allDivs = document.getElementsByTagName('div');
+// const allIframes = document.getElementsByTagName('iframe');
+// const elements = [];
 
-// const article = document.querySelector("article");
+// const setElementBorders = e => {
+//   if (
+//     e.className.match(/(-|_| ?)ad/gm)
+//     || e.id.match(/(-|_| ?)ad/gm)
+//   ) {
+//     // elements.push(e);
+//     e.style.border = "20px solid red";
+//   }
+// };
 
-// // `document.querySelector` may return null if the selector doesn't match anything.
-// if (article) {
-//   const text = article.textContent;
-//   const wordMatchRegExp = /[^\s]+/g; // Regular expression
-//   const words = text.matchAll(wordMatchRegExp);
-//   // matchAll returns an iterator, convert to array to get word count
-//   const wordCount = [...words].length;
-//   const readingTime = Math.round(wordCount / 200);
-//   const badge = document.createElement("p");
-//   // Use the same styling as the publish information in an article's header
-//   badge.classList.add("color-secondary-text", "type--caption");
-//   badge.textContent = `⏱️ ${readingTime} min read`;
+// allDivs.forEach(setElementBorders);
+// allIframes.forEach(setElementBorders);
 
-//   // Support for API reference docs
-//   const heading = article.querySelector("h1");
-//   // Support for article docs with date
-//   const date = article.querySelector("time")?.parentNode;
 
-//   (date ?? heading).insertAdjacentElement("afterend", badge);
-// }
+const attributes = ["class", "id"];
+const elementToAttr = {
+  div: attributes,
+  iframe: attributes,
+};
+for (const [element, attrs] of Object.entries(elementToAttr)) {
+  
+  attrs.forEach(attr => {
+    const selected = document.querySelectorAll(`${element}[${attr}*="ad"]`);
+    if (selected.length === 0) {
+      return;
+    }
+    selected[0].style.border = "20px solid red";
+  });
+}
 
-document.getElementsByTagName("div").forEach(e => e.style = "color: green");
+// sanity check
+document.getElementsByTagName("body")[0].style = "color: green;";
