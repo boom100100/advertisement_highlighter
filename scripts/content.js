@@ -8,7 +8,7 @@ const removeAllChildren = (element) => {
   }
 }
 
-const pattern = /[^A-z]((Advertisement|Advertisement|ADVERTISEMENT|advertisement)|[A|a][D|d]v?|(Sponsor|sponsor|SPONSOR|Sponsored|SPONSORED|sponsored))\b/gm;
+const pattern = /[^A-z]((AdChoices|adchoices|ADCHOICES|Adchoices|Advertisement|Advertisement|ADVERTISEMENT|advertisement)|[A|a][D|d]v?|(Sponsor|sponsor|SPONSOR|Sponsored|SPONSORED|sponsored))\b/gm;
 
 const hasMatchingAttr = (e) => {
   const eWithoutChildrenText = e.cloneNode();
@@ -39,7 +39,7 @@ document.querySelectorAll("body *").forEach(e => {
     return;
   }
 
-  e.style.border = "50px solid #39ff14";
+  e.style.border = "20px solid #39ff14";
   // TODO: add functionality for hiding ads instead of highlighting.
   // Currently, changing the display to hidden changes nothing.
   // (Expected behavior: the space remains occupied, but the ad is gone.)
