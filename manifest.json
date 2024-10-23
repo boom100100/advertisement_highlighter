@@ -1,6 +1,6 @@
 {
-  "name": "Advertisement Highlighter",
-  "description": "Base Level Extension",
+  "name": "Ad Highlighter",
+  "description": "An extension that highlights banner advertisements (and some video ads).",
   "version": "0.0.1",
   "content_scripts": [
    {
