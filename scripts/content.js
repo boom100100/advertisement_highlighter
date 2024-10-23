@@ -1,6 +1,3 @@
-// sanity check
-// console.log("i started");
-
 const removeAllChildren = (element) => {
   // removes false positives; later check will therefore exclude text in descendents
   while (element.firstChild) {
@@ -45,7 +42,3 @@ document.querySelectorAll("body *").forEach(e => {
   // (Expected behavior: the space remains occupied, but the ad is gone.)
   // e.style.display = "hidden";
 });
-
-
-// sanity check
-// console.log("i finished");
