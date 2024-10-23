@@ -1,14 +1,14 @@
 // sanity check
-console.log("i started");
+// console.log("i started");
 
 const removeAllChildren = (element) => {
-  // removes false positives; later check will exclude text in descendents
+  // removes false positives; later check will therefore exclude text in descendents
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
 }
 
-const pattern = /[^A-z]((Advertisement|Advertisement|ADVERTISEMENT|advertisement)|[A|a][D|d]v?|[S|s]ponsor)\b/gm;
+const pattern = /[^A-z]((Advertisement|Advertisement|ADVERTISEMENT|advertisement)|[A|a][D|d]v?|(Sponsor|sponsor|SPONSOR|Sponsored|SPONSORED|sponsored))\b/gm;
 
 const hasMatchingAttr = (e) => {
   const eWithoutChildrenText = e.cloneNode();
@@ -28,21 +28,17 @@ const hasMatchingAttr = (e) => {
   return false;
 };
 
-const articleParent = document.querySelector("article");
 
 document.querySelectorAll("body *").forEach(e => {
-  const isChildOfArticle = (
-    false
-    // TODO: is there a way to check that text is part of article? Probably not.
-    // articleParent !== null
-    // && articleParent.contains(e)
-  );
   const isIndicatingAd = (
     hasMatchingAttr(e)
   );
-  if (isChildOfArticle || !isIndicatingAd) {
+  if (!isIndicatingAd) {
+    // TODO: is there a way to check that text is part of article and not an ad? (For isChildOfArticle.)
+    // Being a descendent of an element with tag "article" is not enough, so probably not.
     return;
   }
+
   e.style.border = "50px solid #39ff14";
   // TODO: add functionality for hiding ads instead of highlighting.
   // Currently, changing the display to hidden changes nothing.
@@ -52,5 +48,4 @@ document.querySelectorAll("body *").forEach(e => {
 
 
 // sanity check
-// document.getElementsByTagName("body")[0].style = "color: green;";
-console.log("i finished");
+// console.log("i finished");
