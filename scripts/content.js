@@ -25,8 +25,8 @@ const hasMatchingAttr = (e) => {
   return false;
 };
 
-// Callback function to execute when mutations are observed
-const callback = (_mutationList, _observer) => {
+// Callback function to execute when clicked and when mutations are observed
+const addBorders = (_mutationList, _observer) => {
   document.querySelectorAll("body *").forEach(e => {
     const isIndicatingAd = (
       hasMatchingAttr(e)
@@ -58,5 +58,6 @@ const setMutationObserver = (callback) => {
   // Start observing the target node for configured mutations
   observer.observe(targetNode, config);
 }
-callback(undefined, undefined);
-setMutationObserver(callback);
+
+addBorders();
+setMutationObserver(addBorders);
