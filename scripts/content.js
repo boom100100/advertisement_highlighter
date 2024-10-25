@@ -58,5 +58,5 @@ const setMutationObserver = (callback) => {
   // Start observing the target node for configured mutations
   observer.observe(targetNode, config);
 }
-
+callback(undefined, undefined);
 setMutationObserver(callback);
