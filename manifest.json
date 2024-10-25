@@ -1,15 +1,16 @@
 {
   "name": "Ad Highlighter",
-  "description": "An extension that highlights banner advertisements (and some video ads).",
+  "description": "An extension that highlights banner advertisements (and some videos that may be ads).",
   "version": "0.0.1",
   "content_scripts": [
    {
     "matches": [
-      "<all_urls>",
-      "https://chromewebstore.google.com/detail/adblock-%E2%80%94-block-ads-acros/gighmmpiobklfepjocnamgkkbiglidom?pli=1"
+      "<all_urls>"
     ],
 
-     "js": ["scripts/content.js"]
+     "js": [
+      "scripts/content.js"
+    ]
    }
  ],
   "icons": {
