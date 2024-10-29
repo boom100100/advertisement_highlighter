@@ -1,7 +1,7 @@
 {
   "name": "Ad Highlighter",
   "description": "An extension that highlights advertisements in text, image, and video form.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "background": {
         "service_worker": "background.js"
     },
